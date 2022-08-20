@@ -39,7 +39,7 @@ To avoid having to start from scratch when the container is deleted.
 
 This is how you start a new Kali Linux container using the custom image created earlier and map the two locations to the Docker Volumes:
 
-docker run -ti --rm --mount src=kali-root,dst=/root --mount src=kali-postgres,dst=/var/lib/postgresql/data kalirolling
+docker run -ti --rm --name kali --mount src=kali-root,dst=/root --mount src=kali-postgres,dst=/var/lib/postgresql/data kalirolling
 
 Initially this will create two volumes named kali-root and kali-postgres, then maps to these Docker Volumes on subsequent runs.
 
