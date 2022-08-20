@@ -26,10 +26,10 @@ Create a volumes folder
 
 mkdir -p $HOME/docker/volumes/postgres
 
-# Start the Postgres container
+## Start the Postgres container
 docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
 
-## Volumes
+### Volumes
 
 To avoid having to start from scratch when the container is deleted.
 
