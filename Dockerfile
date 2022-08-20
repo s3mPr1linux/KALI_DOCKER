@@ -11,7 +11,7 @@ RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade 
 RUN sed -i 's|http://|https://|g' /etc/apt/sources.list
 RUN apt-get update -y
 
-# Install Metasploit - avoid dependency issues
+# Install Metasploit - avoid certificate issues
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Peer=false -o Acquire::https::Verify-Host=false -y metasploit-framework 
 
 # Install common and useful tools
