@@ -14,8 +14,13 @@ RUN apt-get update && \
 RUN sed -i 's|http://|https://|g' /etc/apt/sources.list
 RUN apt-get update
 
+# Install Metasploit - avoid certificate issues
+RUN apt-get update -o Acquire::https::Verify-Peer=false -o Acquire::https::Verify-Host=false && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Peer=false -o Acquire::https::Verify-Host=false -y \
+    metasploit-framework 
+
 # Install useful languages & tools
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Peer=false -o Acquire::https::Verify-Host=false -y \
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     apktool \
     curl \
     dex2jar \
