@@ -22,6 +22,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     dirb \
     git \
     golang \
+    iputils-ping \
     lsof \
     ltrace \
     net-tools \
