@@ -44,8 +44,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     wireshark \
     zsh
     
-RUN git clone https://github.com/guelfoweb/knock.git && cd knock
-RUN python3 setup.py install
+RUN git clone https://github.com/guelfoweb/knock.git
 
 # Install the latest nuclei engine and templates
 RUN sh -c "$(go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest)"
