@@ -43,7 +43,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     whois \
     wireshark \
     zsh
-    
+
+# Install knockpy
 RUN git clone https://github.com/guelfoweb/knock.git
 RUN cd knock
 RUN pip3 install -r requirements.txt
