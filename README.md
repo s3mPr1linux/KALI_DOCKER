@@ -24,24 +24,14 @@ docker pull postgres
 
 Create a volumes folder
 
-mkdir -p $HOME/docker/volumes/postgres
+mkdir -p <local host path>/postgres
 
 ## Start the Postgres container
-docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data postgres
+docker run --name pg-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v <local host path>/postgres:/var/lib/postgresql/data postgres
 
 ### Volumes
 
-docker volume create kali-root
+mkdir -p <local host path>/kali-data
 
-To avoid having to start from scratch when the container is deleted.
-
-/kali-root — home dir for root (downloads, notes, source code etc.)
-
-/var/lib/postgresql— Postgres database files (used by Metasploit)
-
-This is how you start a new Kali Linux container using the custom image created earlier and map the two locations to the Docker Volumes:
-
-docker run -ti --rm --name kali --mount src=kali-root,dst=/root --mount src=kali-postgres,dst=/var/lib/postgresql/data kalirolling
-
-Initially this will create two volumes named kali-root and kali-postgres, then maps to these Docker Volumes on subsequent runs.
+docker run -it --name kali -v <local host path>/kali-data:/root kalirolling
 
