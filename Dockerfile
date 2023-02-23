@@ -45,6 +45,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     zsh
     
 RUN git clone https://github.com/guelfoweb/knock.git
+RUN cd knock
+RUN pip3 install -r requirements.txt
+RUN python3 setup.py install
 
 # Install the latest nuclei engine and templates
 RUN sh -c "$(go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest)"
