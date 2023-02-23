@@ -38,8 +38,9 @@ Create a volumes folder
 ## Volumes
 
     > mkdir -p <local host path>/kali-data
-    > docker run -it --name kali -v <local host path>/kali-data:/root kalirolling
+    > docker run -it --name kali -v <local host path>/kali-data:<path on container> kalirolling
     
+NOTE: The default path is /root
 
 # GNU General Public License
 Except as otherwise specified:
