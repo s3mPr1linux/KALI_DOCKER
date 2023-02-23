@@ -31,9 +31,11 @@ docker run --rm --name pg-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -
 
 ### Volumes
 
+docker volume create kali-root
+
 To avoid having to start from scratch when the container is deleted.
 
-/root — home dir for root (downloads, notes, source code etc.)
+/kali-root — home dir for root (downloads, notes, source code etc.)
 
 /var/lib/postgresql— Postgres database files (used by Metasploit)
 
