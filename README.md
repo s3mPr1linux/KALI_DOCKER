@@ -19,11 +19,13 @@ If no errors arises from the build, create a container to test if its operationa
 
 NOTE: The --rm switch makes Docker delete the container once you exit the shell to avoid wasting storage space with a bunch of stopped containers.
 
-# Persistent
-To get access the files created by the various tools and have a backend database for use for tools such as metasploit, having something that
+# Persistent Storage
+To access the files created by the various tools and have a backend database for use for tools such as metasploit. Most importantly, restoring after spinning the containers up and down.
 
 ## Postgresql
-This will be separate image from kali image, so there is little need for customization
+This will be separate image from kali image, so there is little need for customization.
+
+REF: https://medium.com/@basit26374/how-to-run-postgresql-in-docker-container-with-volume-bound-c141f94e4c5a
 
     > docker pull postgres
 
@@ -40,20 +42,11 @@ Create a volumes folder
     > mkdir -p <local host path>/kali-data
     > docker run -it --name kali -v <local host path>/kali-data:<path on container> kalirolling
     
-NOTE: The default path is /root
+NOTE: The default path is based on whatever is set in the Dockerfile - WORKDIR /root
 
-# GNU General Public License
-Except as otherwise specified:
+## Both
+    > 
 
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY
-WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with
-this program. If not, see <http://www.gnu.org/licenses/>.
+# License
+KaliDocker is currently under development by @sealmindset and it's released under the GPL 3 license.
 
