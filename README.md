@@ -40,12 +40,12 @@ Create a volumes folder
 ## Volumes
 
     > mkdir -p <local host path>/kali-data
-    > docker run -it --name kali -v <local host path to>/kali-data:<path on container> kalirolling
+    > docker run -it --name kali -v <local host path to>/kali-data:<path on container> kalirolling zsh
     
 NOTE: The default path is based on whatever is set in the Dockerfile - WORKDIR /root
 
 ## Both
-    > docker run -it --name kali -v <local host path to>/kali-data:/root -v <local host path to>/postgres:/var/lib/postgresql kalirolling
+    > docker run -it --name kali -v <local host path to>/kali-data:/root -v <local host path to>/postgres:/var/lib/postgresql kalirolling zsh
 
 # License
 KaliDocker is currently under development by @sealmindset and it's released under the GPL 3 license.
