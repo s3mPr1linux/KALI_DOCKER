@@ -17,6 +17,7 @@ RUN apt-get update
 # Install useful languages & tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Peer=false -o Acquire::https::Verify-Host=false -y \
     apktool \
+    braa \
     curl \
     dex2jar \
     dirb \
@@ -34,6 +35,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     proxychains \
     python3-pip \
     responder \
+    snmp-check \
     sqlmap \
     strace \
     tor \
@@ -45,6 +47,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -o Acquire::https::Verify-Pee
     zsh
 
 # Install knockpy
+WORKDIR /root
 RUN git clone https://github.com/guelfoweb/knock.git
 RUN cd knock
 RUN pip3 install -r requirements.txt
@@ -57,6 +60,7 @@ RUN sh -c "$(go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest)
 COPY config/proxychains.conf /etc/proxychains.conf
 
 # Setup ZSH and set it as the default shell
+# To reload ZSH - omz reload
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 COPY config/.zshrc .
 ENTRYPOINT ["/bin/zsh"]
