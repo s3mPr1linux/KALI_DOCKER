@@ -3,7 +3,7 @@ While GUI has it's place, this image is CLI based.
 
 There are two Dockerfile's to choose from. The first is a basic Kali docker image without the tools such as metasploit. The second, Dockerfile.msf is the full fledge Kali with all of the standard tools. Both can be customized to meet whatever the needs are.
 
-A quick note, both are setup with the interactive shell as "oh-my-zsh". 
+A quick note, both are setup with the interactive shell as "oh-my-zsh with the fino theme.
 
 ## Setup
 First, grab this repo.
